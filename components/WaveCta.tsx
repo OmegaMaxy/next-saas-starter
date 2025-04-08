@@ -6,6 +6,7 @@ import Container from 'components/Container';
 import SectionTitle from 'components/SectionTitle';
 import { useNewsletterModalContext } from 'contexts/newsletter-modal.context';
 import { media } from 'utils/media';
+import RichText from './RichText';
 
 export default function WaveCta() {
   const { setIsModalOpened } = useNewsletterModalContext();
@@ -21,15 +22,13 @@ export default function WaveCta() {
       </svg>
       <CtaWrapper>
         <Container>
-          <Title>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus delectus?</Title>
+          <Title>Nog niet overtuigd, maar wel geinteresseerd?</Title>
+          <SubText>In een korte call leren we elkaar beter kennen.</SubText>
           <CustomButtonGroup>
-            <Button onClick={() => setIsModalOpened(true)}>
-              Subscribe to the newsletter <span>&rarr;</span>
-            </Button>
-            <NextLink href="/features" passHref>
-              <OutlinedButton transparent>
-                Features <span>&rarr;</span>
-              </OutlinedButton>
+            <NextLink href="/contact" passHref>
+              <Button>
+                Neem contact op <span>&rarr;</span>
+              </Button>
             </NextLink>
           </CustomButtonGroup>
         </Container>
@@ -50,6 +49,13 @@ const CtaWrapper = styled.div`
 
 const Title = styled(SectionTitle)`
   color: rgb(var(--textSecondary));
+  margin-bottom: 2rem;
+`;
+
+const SubText = styled(SectionTitle)`
+  color: rgb(var(--textSecondary));
+  font-size: 2rem;
+  font-weight: normal;
   margin-bottom: 4rem;
 `;
 

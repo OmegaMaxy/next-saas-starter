@@ -12,6 +12,11 @@ import Hero from 'views/HomePage/Hero';
 import Partners from 'views/HomePage/Partners';
 import ScrollableBlogPosts from 'views/HomePage/ScrollableBlogPosts';
 import Testimonials from 'views/HomePage/Testimonials';
+import RichText from 'components/RichText';
+import { media } from 'utils/media';
+import Container from 'components/Container';
+import OverTitle from 'components/OverTitle';
+import WaveCta from 'components/WaveCta';
 
 export default function Homepage({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
@@ -26,39 +31,99 @@ export default function Homepage({ posts }: InferGetStaticPropsType<typeof getSt
       <HomepageWrapper>
         <WhiteBackgroundContainer>
           <Hero />
-          <Partners />
-          <BasicSection imageUrl="/demo-illustration-1.svg" title="Lorem ipsum dolor sit amet consectetur." overTitle="sit amet gogo">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, quidem error incidunt a doloremque voluptatem porro inventore
-              voluptate quo deleniti animi laboriosam.{' '}
-              <Link href="/help-center">Possimus ullam velit rem itaque consectetur, in distinctio?</Link> Lorem ipsum, dolor sit amet
-              consectetur adipisicing elit. Soluta repellendus quia quos obcaecati nihil. Laudantium non accusantium, voluptate eum nesciunt
-              at suscipit quis est soluta?
-            </p>
-          </BasicSection>
-          <BasicSection imageUrl="/demo-illustration-2.svg" title="Lorem ipsum dolor sit." overTitle="lorem ipsum" reversed>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, quidem error incidunt a doloremque voluptatem porro inventore{' '}
-              <strong>voluptate quo deleniti animi laboriosam</strong>. Possimus ullam velit rem itaque consectetur, in distinctio?
-            </p>
-            <ul>
-              <li>Professional point 1</li>
-              <li>Professional remark 2</li>
-              <li>Professional feature 3</li>
-            </ul>
-          </BasicSection>
+          <SimpleSection>
+            <div style={{ "flex": "1" }}>
+              <SectionTitle>
+                Waarde creatie met AI en ontwikkeling op maat
+              </SectionTitle>
+              <SectionSubTitle>
+                67+ projecten gerealiseerd
+              </SectionSubTitle>
+            </div>
+            <div style={{ "flex": "1", "padding": "0 2rem" }}>
+              <RichText>
+                Bij OmegaUna helpen we je niet alleen met <b>webontwikkeling</b> en <b>automatisering</b>, maar ook met <b>AI-oplossingen</b> die je bedrijf schaalbaar en efficiënter maken. Of je nu je processen wilt versnellen, je bedrijf wilt opschalen of handmatig werk wilt elimineren – wij helpen jou waarde creëren.
+              </RichText>
+            </div>
+          </SimpleSection>
         </WhiteBackgroundContainer>
         <DarkerBackgroundContainer>
-          <Cta />
-          <FeaturesGallery />
-          <Features />
           <Testimonials />
-          <ScrollableBlogPosts posts={posts} />
+          <FeaturesGallery />
+          <Cta />
         </DarkerBackgroundContainer>
+        <WhiteBackgroundContainer style={{ "paddingTop": "12rem" }}>
+          <SimpleSection>
+            <div style={{ "flex": "1" }}>
+              <OverTitle style={{ "lineHeight": "1.1", "marginBottom": "2rem" }}>Enkele uit ons portfolio</OverTitle>
+              <SectionTitle>
+                Verhalen waar we trots op zijn.
+              </SectionTitle>
+              <RichText>
+                Lars kwam naar ons met een duidelijke uitdaging: zijn e-commercebedrijf groeide snel, maar daarmee groeide het manueel werk ook.
+              </RichText>  
+              <RichText style={{ "marginTop": "2rem" }}>
+                Tijdens onze samenwerking kreeg Lars het gevoel dat hij nu écht de controle had over zijn bedrijf. En wij? We waren trots om een essentieel onderdeel te zijn van zijn succesverhaal.
+              </RichText>
+            </div>
+            <div style={{ "flex": "1", "padding": "0 2rem" }}>
+              <RichText>
+                <h1>Lars</h1>
+              </RichText>
+              <RichText>
+                Mede-eigenaar E-commercebedrijf
+              </RichText>
+              <RichText style={{ "marginTop": "2rem" }}>
+                Als snelgroeiend e-commercebedrijf liepen we vast op de hoeveelheid handmatige processen, vooral in voorraadbeheer en klantenservice. 
+                Dankzij de expertise van OmegaUna hebben we nu AI-gestuurde automatiseringen die voorraadupdates, klantvragen en orderverwerking moeiteloos afhandelen.
+              </RichText>
+              <RichText style={{ "marginTop": "2rem" }}> 
+                Het resultaat? <b>Minder fouten</b>, snellere service en ruimte om verder te groeien zonder extra personeel. Hun team dacht <b>proactief</b> mee en leverde maatwerk waar we écht iets aan hebben.
+              </RichText>
+            </div>
+          </SimpleSection>
+        </WhiteBackgroundContainer>
       </HomepageWrapper>
+      <WaveCta />
     </>
   );
 }
+
+const SimpleSection = styled(Container)`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 0 2rem;
+
+  ${media('<=desktop')} {
+    flex-direction: column;
+  }
+`;
+
+const SectionTitle = styled.h1`
+  font-size: 5.2rem;
+  font-weight: normal;
+  line-height: 1.1;
+  margin-bottom: 4rem;
+  letter-spacing: -0.03em;
+
+  ${media('<=tablet')} {
+    font-size: 4.6rem;
+    margin-bottom: 2rem;
+  }
+`;
+
+const SectionSubTitle = styled.h3`
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+
+  ${media('<=tablet')} {
+    font-size: 4.6rem;
+    margin-bottom: 2rem;
+  }
+`;
 
 const HomepageWrapper = styled.div`
   & > :last-child {

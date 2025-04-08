@@ -3,6 +3,8 @@ import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'react-share';
 import styled from 'styled-components';
 import Container from 'components/Container';
 import { media } from 'utils/media';
+import Image from 'next/image';
+import RichText from './RichText';
 
 type SingleFooterListItem = { title: string; href: string };
 type FooterListItems = SingleFooterListItem[];
@@ -11,37 +13,11 @@ type FooterItems = SingleFooterList[];
 
 const footerItems: FooterItems = [
   {
-    title: 'Company',
+    title: 'Info',
     items: [
-      { title: 'Privacy Policy', href: '/privacy-policy' },
-      { title: 'Cookies Policy', href: '/cookies-policy' },
-    ],
-  },
-  {
-    title: 'Product',
-    items: [
-      { title: 'Features', href: '/features' },
-      { title: 'Something', href: '/something' },
-      { title: 'Something else', href: '/something-else' },
-      { title: 'And something else', href: '/and-something-else' },
-    ],
-  },
-  {
-    title: 'Knowledge',
-    items: [
-      { title: 'Blog', href: '/blog' },
+      { title: 'Groeien', href: '/groeien' },
       { title: 'Contact', href: '/contact' },
-      { title: 'FAQ', href: '/faq' },
-      { title: 'Help Center', href: '/help-center' },
-    ],
-  },
-  {
-    title: 'Something',
-    items: [
-      { title: 'Features2', href: '/features2' },
-      { title: 'Something2', href: '/something2' },
-      { title: 'Something else2', href: '/something-else2' },
-      { title: 'And something else2', href: '/and-something-else2' },
+      { title: 'Offerte aanvragen', href: '/offerte-aanvragen' },
     ],
   },
 ];
@@ -51,31 +27,46 @@ export default function Footer() {
     <FooterWrapper>
       <Container>
         <ListContainer>
+          <ListWrapper>
+            <Image src="/OmegaUnaIcon.png" width="60" height="60" layout="fixed"/>
+            <ListHeader>OmegaUna<br/>IT bedrijf</ListHeader>
+            <ListItemWrapper>
+              +32 484 80 55 70 <br/>
+              info@omegauna.be <br/>
+              Leuven - België <br/>
+            </ListItemWrapper>
+          </ListWrapper>
+          <div>
+          <ListHeader>Partnerships</ListHeader>
+            <ListItemWrapper>
+              Heb je een startup idee, <br/>maar nog geen technische expertise?
+            </ListItemWrapper>
+            <ListItemWrapper style={{ "fontWeight": "bold" }}>
+              <NextLink href="/contact" passHref>
+                <a>Contacteer ons</a>
+              </NextLink>
+            </ListItemWrapper>
+          </div>
           {footerItems.map((singleItem) => (
             <FooterList key={singleItem.title} {...singleItem} />
           ))}
         </ListContainer>
         <BottomBar>
-          <ShareBar>
-            <NextLink href="https://www.twitter.com/my-saas-startup" passHref>
-              <a>
-                <TwitterIcon size={50} round={true} />
-              </a>
-            </NextLink>
-
-            <NextLink href="https://www.facebook.com/my-saas-startup" passHref>
+          {/*<ShareBar>
+            <NextLink href="https://www.facebook.com/omegauna.be" passHref>
               <a>
                 <FacebookIcon size={50} round={true} />
               </a>
             </NextLink>
 
-            <NextLink href="https://www.linkedin.com/my-saas-startup" passHref>
+            <NextLink href="https://www.linkedin.com/in/omegauna.be" passHref>
               <a>
                 <LinkedinIcon size={50} round={true} />
               </a>
             </NextLink>
-          </ShareBar>
-          <Copyright>&copy; Copyright 2021 My Saas Startup</Copyright>
+          </ShareBar>*/}
+          <Copyright>&copy; Copyright {new Date().getFullYear()} OmegaUna</Copyright>
+          <BTW><b>BTW</b> BE10 0572 1239</BTW>
         </BottomBar>
       </Container>
     </FooterWrapper>
@@ -160,6 +151,11 @@ const ShareBar = styled.div`
 `;
 
 const Copyright = styled.p`
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+`;
+
+const BTW = styled.p`
   font-size: 1.5rem;
   margin-top: 0.5rem;
 `;

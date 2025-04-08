@@ -1,5 +1,16 @@
+import Image from 'next/image';
+import styled from 'styled-components';
+
 export default function Logo({ ...rest }) {
+
   return (
+    <LogoBox>
+      <Image src="/OmegaUnaIcon.png" width="60" height="60" layout="fixed"/>
+      <h1 style={{ "marginLeft": "2rem" }}>Omegauna</h1>
+    </LogoBox>
+  );
+  
+  /*return (
     <svg id="logo-34" width="155" height="40" viewBox="0 0 155 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...rest}>
       <path d="M51.5821 10.2839H48V26.4472H57.9164V23.2801H51.5821V10.2839Z" className="ccustom" fill="currentColor"></path>
       <path
@@ -63,5 +74,12 @@ export default function Logo({ ...rest }) {
         fill="#2DF8BB"
       ></path>
     </svg>
-  );
+  );*/
 }
+
+const LogoBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+`;

@@ -7,32 +7,40 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Container from 'components/Container';
 import Separator from 'components/Separator';
 import { media } from 'utils/media';
+import SectionTitle from 'components/SectionTitle';
 
 const TESTIMONIALS = [
   {
-    companyLogoUrl: '/testimonials/company-logo-1.svg',
-    content: `Really good. I am so pleased with this product. I didn't even need training.`,
+    companyLogoUrl: '/testimonials/company-logo-2.svg',
+    content: `We wisten dat AI veel potentieel had, maar hadden geen idee waar te beginnen. 
+              Jullie begeleidde ons stap voor stap en ontwikkelde op snel tempo een slimme AI-oplossing.`,
     author: {
-      name: 'Clyde Edwards',
-      title: 'Very Serious Man',
+      name: 'Monadem Benelux',
+      title: 'Logistieke automatisatie',
       avatarUrl: '/testimonials/author-photo-1.jpeg',
     },
   },
   {
     companyLogoUrl: '/testimonials/company-logo-2.svg',
-    content: `It's really wonderful. I use saas product often. Thank You! Saas product has really helped our business.`,
+    content: `Top gast, top kwaliteit, top prijs, heel professioneel en staat altijd voor je klaar als er iets is. Een grote
+              aanrader voor als je een mooie dashboard wilt laten maken dus!`,
     author: {
-      name: 'Jimmy Hunter',
-      title: 'Sigma Male University Graduate',
+      name: 'Jimmy H.',
+      title: 'E-commerce',
       avatarUrl: '/testimonials/author-photo-2.jpeg',
     },
   },
   {
     companyLogoUrl: '/testimonials/company-logo-3.svg',
-    content: `Since I invested in saas product I made over 100,000 dollars profits. It really saves me time and effort. saas product is exactly what our business has been lacking.`,
+    content: `OmegaUna heeft mijn dagelijkse operaties volledig geautomatiseerd en zelfs georganiseerd op een mooi dashboard. Ze werken af
+              tot alles in de puntjes in orde is. Ook nadien volgt hij
+              op, stelt de juiste vragen, luistert goed naar de klant
+              en past aan waar nodig. Zeer tevreden met het geleverde
+              resultaat en hopend op nog een fijne verdere
+              samenwerking.`,
     author: {
-      name: 'Marjorie Morgan',
-      title: 'Chief Chad Officer',
+      name: 'Sofie Van Meensel',
+      title: 'Eigenaar boekhoudkantoor',
       avatarUrl: '/testimonials/author-photo-3.jpeg',
     },
   },
@@ -42,6 +50,7 @@ export default function Testimonials() {
   return (
     <div>
       <Separator />
+      <SectionTitle style={{ "marginBottom": "4rem" }}>Ervaringen die Spreken</SectionTitle>
       <TestimonialsWrapper>
         <Swiper modules={[Navigation, Autoplay, A11y]} slidesPerView={1} autoplay={{ delay: 8000 }} centeredSlides navigation loop>
           {TESTIMONIALS.map((singleTestimonial, idx) => (

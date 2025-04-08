@@ -1,11 +1,18 @@
 import styled from 'styled-components';
+import { emailAddress } from 'utils/constants';
 
 export default function InformationSection() {
   return (
     <Wrapper>
-      <h3>Contact Info</h3>
+      <h3>Je kan ons makkelijk bereiken</h3>
       <p>
-        <span>Email:</span> support@myawesomesaas.com
+        <span>Bel ons:</span> <b>+32 484 80 55 70</b>
+      </p>
+      <p>
+        <span>Mail ons:</span> <b>{emailAddress}</b>
+      </p>
+      <p>
+        Maandag – Zaterdag: 09u00 – 19u00
       </p>
     </Wrapper>
   );

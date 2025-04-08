@@ -95,9 +95,9 @@ function NavItem({ href, title, outlined }: SingleNavItem) {
     setIsModalOpened(true);
   }
 
-  if (outlined) {
+  /*if (outlined) {
     return <CustomButton onClick={showNewsletterModal}>{title}</CustomButton>;
-  }
+  }*/
 
   return (
     <NavItemWrapper outlined={outlined}>
@@ -134,6 +134,12 @@ const LogoWrapper = styled.a`
   text-decoration: none;
 
   color: rgb(var(--logoColor));
+`;
+
+const LogoTitle = styled.h1`
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  line-height: 2;
 `;
 
 const NavItemWrapper = styled.li<Partial<SingleNavItem>>`

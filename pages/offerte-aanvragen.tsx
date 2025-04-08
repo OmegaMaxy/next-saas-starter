@@ -3,13 +3,14 @@ import Page from 'components/Page';
 import { media } from 'utils/media';
 import FormSection from 'views/ContactPage/FormSection';
 import InformationSection from 'views/ContactPage/InformationSection';
+import FormAdvancedSection from 'views/ContactPage/FormAdvancedSection';
 
 export default function ContactPage() {
   return (
-    <Page title="Contacteer ons" description="Laat wat informatie achter en we nemen contact met u op.">
+    <Page title="Vraag een Offerte aan" description="Een nieuw project of interesse? Welkom!">
       <ContactContainer>
         <InformationSection />
-        <FormSection />
+        <FormAdvancedSection />
       </ContactContainer>
     </Page>
   );

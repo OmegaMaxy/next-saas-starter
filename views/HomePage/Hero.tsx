@@ -14,19 +14,18 @@ export default function Hero() {
   return (
     <HeroWrapper>
       <Contents>
-        <CustomOverTitle>the coolest, saas product you have ever seen</CustomOverTitle>
-        <Heading>Make your life easier with our SaaS</Heading>
+        <CustomOverTitle>Slimme IT-oplossingen voor groei.</CustomOverTitle>
+        <Heading>Ontwikkeling, automatisering en AI-integraties</Heading>
         <Description>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, tempora qui. Explicabo voluptate iure ipsum molestias
-          repudiandae perspiciatis nostrum praesentium, unde pariatur tempora magni rem. Necessitatibus facilis obcaecati ratione.
+          Webontwikkeling en automatisering op maat, inclusief AI-integraties en schaalbare oplossingen. Alles voor een slimmere bedrijfsvoering in één compleet pakket.
         </Description>
         <CustomButtonGroup>
-          <Button onClick={() => setIsModalOpened(true)}>
-            Subscribe to the newsletter <span>&rarr;</span>
+          <Button href="#contact">
+            Neem contact op <span>&rarr;</span>
           </Button>
-          <NextLink href="#whitepaper" passHref>
+          <NextLink href="/groeien" passHref>
             <Button transparent>
-              Features <span>&rarr;</span>
+              Groeien <span>&rarr;</span>
             </Button>
           </NextLink>
         </CustomButtonGroup>

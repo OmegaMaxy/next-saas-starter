@@ -29,15 +29,15 @@ export const GlobalStyle = createGlobalStyle`
 
 .next-dark-theme {
   --background: 26,32,44;
-  --secondBackground: 45,55,72;
+  --secondBackground: #181A1D;
   --text: 237,237,238;
   --textSecondary: 255,255,255;
   --primary: 22,115,255; 
   --secondary: 10,18,30;
   --tertiary: 231,241,251;
-  --cardBackground: 45,55,72;
-  --inputBackground: 45,55,72;
-  --navbarBackground: 45,55,72;
+  --cardBackground: #181A1D;
+  --inputBackground: #181A1D;
+  --navbarBackground: #181A1D;
   --modalBackground: 26,32,44;
   --errorColor: 207,34,46;
   --logoColor: #fff;

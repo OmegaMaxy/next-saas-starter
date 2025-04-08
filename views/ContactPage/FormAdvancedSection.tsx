@@ -3,17 +3,23 @@ import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import Button from 'components/Button';
 import Input from 'components/Input';
+import Select from 'components/Select';
 import { media } from 'utils/media';
 import MailSentState from '../../components/MailSentState';
 import { emailAddress } from '../../utils/constants'
+import SectionTitle from 'components/SectionTitle';
 
 interface EmailPayload {
   name: string;
   email: string;
   description: string;
+  telephone: string;
+  type: 'webapp' | 'ai-integration' | 'automatisering' | 'waarde' | 'other';
+  btw: string;
+  company_name: string;
 }
 
-export default function FormSection() {
+export default function FormAdvancedSection() {
   const [hasSuccessfullySentMail, setHasSuccessfullySentMail] = useState(false);
   const [hasErrored, setHasErrored] = useState(false);
   const { register, handleSubmit, formState } = useForm();
@@ -21,12 +27,12 @@ export default function FormSection() {
 
   async function onSubmit(payload: EmailPayload) {
     try {
-      const res = await fetch('/api/sendEmail', {
+      const res = await fetch('/api/sendEmailAdv', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ subject: 'Email from contact form', ...payload }),
+        body: JSON.stringify({ subject: 'Email from contactadv form', ...payload }),
       });
 
       if (res.status !== 204) {
@@ -50,30 +56,56 @@ export default function FormSection() {
 
   return (
     <Wrapper>
-      <h3>Stuur ons een bericht via onderstaand formulier.</h3>
+        <h3>
+            Vraag hieronder vrijblijvend een offerte aan en ontvang binnen 1 werkdag een voorstel op maat.
+        </h3>
       <Form onSubmit={handleSubmit(onSubmit)}>
         {hasErrored && <ErrorMessage>Oeps! Er ging iets mis bij het versturen van het formulier. Probeer het opnieuw of neem rechtstreeks contact met ons op via {emailAddress}.</ErrorMessage>}
         <InputGroup>
           <InputStack>
-            <h2>Volledige naam</h2>
+            <InputTitle>Volledige naam</InputTitle>
             {errors.name && <ErrorMessage>Naam is verplicht</ErrorMessage>}
             <Input placeholder="Uw volledige naam" id="name" disabled={isDisabled} {...register('name', { required: true })} />
           </InputStack>
           <InputStack>
-            <h2>E-mail</h2>
+            <InputTitle>E-mail</InputTitle>
             {errors.email && <ErrorMessage>Email is verplicht</ErrorMessage>}
             <Input placeholder="Uw e-mailadres" id="email" disabled={isDisabled} {...register('email', { required: true })} />
           </InputStack>
+          <InputStack>
+            <InputTitle>Telefoonnummer</InputTitle>
+            {errors.name && <ErrorMessage>Telefoonnummer is verplicht</ErrorMessage>}
+            <Input placeholder="Uw telefoonnummer" id="name" disabled={isDisabled} {...register('telephone', { required: true })} />
+          </InputStack>
+        </InputGroup>
+        <InputGroup>
+          <InputStack>
+            <InputTitle>Waarmee kunnen wij u helpen?</InputTitle>
+            <Select placeholder="Uw volledige naam" id="name" disabled={isDisabled} {...register('type', { required: false })}>
+                <option value="webapp" selected>Web Applicatie</option>
+                <option value="ai-integration">AI-integratie</option>
+                <option value="automatisering">Automatisering</option>
+                <option value="waarde">Waarde Creatie</option>
+                <option value="other">Anders</option>
+            </Select>
+          </InputStack>
+          <InputStack>
+            <InputTitle>BTW-nummer</InputTitle>
+            <Input placeholder="BE1005721239" id="email" disabled={isDisabled} {...register('btw', { required: false })} />
+          </InputStack>
+          <InputStack>
+            <InputTitle>Bedrijfsnaam</InputTitle>
+            <Input placeholder="Uw bedrijf BV" id="name" disabled={isDisabled} {...register('company_name', { required: false })} />
+          </InputStack>
         </InputGroup>
         <InputStack>
-          <h2>Waarmee kunnen wij u helpen?</h2>
-          {errors.description && <ErrorMessage>Beschrijving is verplicht</ErrorMessage>}
+          <InputTitle>Meer details over uw project?</InputTitle>
           <Textarea
             as="textarea"
-            placeholder="Typ hier uw bericht"
+            placeholder="Geef ons meer duidelijkheid indien u dat wenst, anders bellen wij u terug om meer in details te gaan."
             id="description"
             disabled={isDisabled}
-            {...register('description', { required: true })}
+            {...register('description', { required: false })}
           />
         </InputStack>
         <Button as="button" type="submit" disabled={isSubmitDisabled}>
@@ -99,11 +131,16 @@ const Form = styled.form`
   }
 `;
 
+const InputTitle = styled.h2`
+    font-weight: normal;
+`;
+
 const InputGroup = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 4rem;
 
-  & > *:first-child {
+  & > *:not(:last-child) {
     margin-right: 2rem;
   }
 

@@ -13,21 +13,21 @@ export default function Cta() {
     <CtaWrapper>
       <Container>
         <Stack>
-          <OverTitle>Lorem ipsum dolor sit amet</OverTitle>
-          <SectionTitle>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus delectus?</SectionTitle>
+          <OverTitle>Business → IT</OverTitle>
+          <SectionTitle>Waarde creatie</SectionTitle>
           <Description>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda beatae accusamus deleniti nihil quas tempora numquam, vitae
-            culpa.
+            Wij helpen je waarde te creëren door technologie in te zetten die jouw bedrijf schaalbaar, zodat je sneller kunt groeien.
+            <br/>Is dit iets voor jou?
           </Description>
           <ButtonGroup>
-            <NextLink href="#early-access" passHref>
+            <NextLink href="/contact" passHref>
               <Button>
-                Subscribe to the newsletter <span>&rarr;</span>
+                Neem contact op<span>&rarr;</span>
               </Button>
             </NextLink>
-            <NextLink href="#whitepaper" passHref>
+            <NextLink href="/groeien" passHref>
               <OutlinedButton transparent>
-                Features <span>&rarr;</span>
+                Leer meer <span>&rarr;</span>
               </OutlinedButton>
             </NextLink>
           </ButtonGroup>
